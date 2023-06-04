@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Input Example</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Number Your Input Example</h1>
+    <input type="number" id="numberInput">
+    <button onclick="SubmitHandler()">Submit</button>
+    <div id="output"></div>
+    <script>
+        function SubmitHandler() {
+            var input = document.getElementById("numberInput").value;
+            var output = document.getElementById("output");
+            output.innerHTML = "";
+
+            if (input === "") {
+                output.innerHTML = "Please enter a number to find out 🤦‍♂️.";
+            } else if (isNaN(input)) {
+                output.innerHTML = "ah ah ah . Please enter a valid number 😒😒.";
+            } else {
+                var number = parseInt(input);
+
+                if (number < 0) {
+                    output.innerHTML = "Enter a positive➕ value 🤷‍♀️.";
+                } else if (number % 2 === 0) {
+                    var evenNumbers = [];
+                    for (var i = 1; i <= 3; i++) {
+                        evenNumbers.push(number + (2 * i));
+                    }
+                    output.innerHTML = "Next 3️⃣ even numbers: " + evenNumbers.join(", ");
+                } else {
+                    var oddNumbers = [];
+                    for (var i = 1; i <= 3; i++) {
+                        oddNumbers.push(number + (2 * i - 1));
+                    }
+                    output.innerHTML = "Next 3️⃣ odd numbers: " + oddNumbers.join(", ");
+                }
+            }
+        }
+    </script>
+</body>
+</html>
